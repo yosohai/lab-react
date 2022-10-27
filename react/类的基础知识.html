@@ -27,9 +27,22 @@
         // 通过Person实例去调用speak方法是 this中的this就是实例对象
         p1.speak();
         p2.speak();
-        
+
         // 我的名字是王五,我的年龄66
-        p1.speak.call({name:"王五",age:"66"})
+        p1.speak.call({ name: "王五", age: "66" })
+
+        class Student extends Person {
+            constructor(name, age, grade) {
+                super(name, age);
+                this.grade = grade;
+            }
+            speak() {
+                console.log(`我的名字是${this.name},我的年龄${this.age},我读的是${this.grade}年级`)
+            }
+        }
+        var stu1 = new Student("学生甲", 11, 4)
+        console.log(stu1);
+        console.log(stu1.speak());
     </script>
 </body>
 
