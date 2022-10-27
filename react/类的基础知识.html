@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>类的基础知识</title>
+</head>
+
+<body>
+    <div id="example"></div>
+    <script type="text/javascript">
+        class Person {
+            // 构造方法类中的this：类的实例对象
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+            }
+            //  一般方法 放到了哪里 放在类的原形对象 供实例使用
+            speak() {
+                console.log(`我的名字是${this.name},我的年龄${this.age}`)
+            }
+        }
+        const p1 = new Person("张三", 12);
+        const p2 = new Person("李四", 14);
+        console.log(p1);
+        console.log(p2);
+        // 通过Person实例去调用speak方法是 this中的this就是实例对象
+        p1.speak();
+        p2.speak();
+        
+        // 我的名字是王五,我的年龄66
+        p1.speak.call({name:"王五",age:"66"})
+    </script>
+</body>
+
+</html>
