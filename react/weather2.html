@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>天气</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        // 模拟数据
+        let arr = ['vue', 'angular', 'react'];
+        // 类组件 继承React.Component render return 3者必须有
+        class Weather extends React.Component {
+            this.state={isHot:true}
+            render() {
+                console.log(this) // 此处的this是undefined 因为babel开启了严格模式
+                return <h2>今天天气很`{this.state.isHot?炎热:凉爽}`</h2>
+            }
+            change=()=>{
+                this.set
+            };
+        }
+        ReactDOM.render(
+            <Weather />,
+            document.getElementById('example')
+        );
+    </script>
+</body>
+
+</html>
