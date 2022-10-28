@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>事件绑定</title>
+</head>
+
+<body>
+    <button id="btn1">按钮1</button>
+    <button id="btn2">按钮2</button>
+    <button onclick="demo()" id="btn3">按钮3</button>
+</body>
+<script>
+    const btn1= document.getElementById('btn1')
+    btn1.addEventListener('click',function() {
+        alert('你好1');
+    });
+    const btn2= document.getElementById('btn2')
+    btn2.onclick=()=>{
+        alert('你好2');
+    }
+    function demo() {
+        alert('你好3');
+    }
+</script>
+</html>

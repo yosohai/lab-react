@@ -12,20 +12,19 @@
 <body>
     <div id="example"></div>
     <script type="text/babel">
-        // 样式
-        var myStyle = {
-            fontSize: 10,
-            color: '#FF0000'
-        };
-
-        // 模拟数据
-        let arr = ['vue', 'angular', 'react'];
         // 类组件 继承React.Component render return 3者必须有
         class Weather extends React.Component {
-            state={isHot:true}
+            constructor(props) {
+                super(props);
+                this.state = { isHot: false };
+                this.change = this.change.bind(this);
+            }
+            change() {
+                this.setState({ isHot: !this.state.isHot })
+            }
             render() {
-                console.log(this) // 此处的this是undefined 因为babel开启了严格模式
-                return <h2>今天天气很`{this.state.isHot?炎热:凉爽}`</h2>
+                const { isHot } = this.state;
+                return <h2 onClick={this.change}>今天天气很{isHot ? '炎热' : '凉爽'}</h2>
             }
         }
         ReactDOM.render(

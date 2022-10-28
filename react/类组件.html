@@ -12,25 +12,21 @@
 <body>
     <div id="example"></div>
     <script type="text/babel">
-        // 样式
-        var myStyle = {
-            fontSize: 10,
-            color: '#FF0000'
-        };
 
-        // 模拟数据
-        let arr = ['vue', 'angular', 'react'];
         // 类组件 继承React.Component render return 3者必须有
         class Demo extends React.Component {
             render() {
                 console.log(this) // 此处的this是undefined 因为babel开启了严格模式
-                return <h2>我是类组件（适用于复杂组件）</h2>
+                return <h2 onClick={oper}>我是类组件（适用于复杂组件）</h2>
             }
         }
         ReactDOM.render(
             <Demo />,
             document.getElementById('example')
         );
+        function oper() {
+            this.set
+        }
     </script>
 </body>
 

@@ -12,18 +12,16 @@
 <body>
     <div id="example"></div>
     <script type="text/babel">
-        // 模拟数据
-        let arr = ['vue', 'angular', 'react'];
         // 类组件 继承React.Component render return 3者必须有
         class Weather extends React.Component {
-            this.state={isHot:true}
-            render() {
-                console.log(this) // 此处的this是undefined 因为babel开启了严格模式
-                return <h2>今天天气很`{this.state.isHot?炎热:凉爽}`</h2>
+            state = { isHot: false, windy: '微风' };
+            change = () => {
+                this.setState({ isHot: !this.state.isHot })
             }
-            change=()=>{
-                this.set
-            };
+            render() {
+                const { isHot, windy } = this.state;
+                return <h2 onClick={this.change}>今天天气很{isHot ? '炎热' : '凉爽'},{windy}</h2>
+            }
         }
         ReactDOM.render(
             <Weather />,
