@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="example"></div>
+    <div id="example1"></div>
+    <script type="text/babel">
+        const user = {
+            firstName: "wang1",
+            lastName: "bin1",
+
+        };
+        function formatName(user) {
+            return user.firstName + " " + user.lastName;
+        }
+        function getGreeting(user) {
+            if(user) {
+                return <h1> hello,{formatName(user)}</h1>;
+            }
+            return <h1>hello, 陌生人</h1>;
+        }
+        ReactDOM.render(getGreeting(user), document.getElementById("example"));
+        
+        ReactDOM.render(React.createElement("h2",null,"nihao"), document.getElementById("example1"));
+    </script>
+</body>
+
+</html>
